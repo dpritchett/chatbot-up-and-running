@@ -14,4 +14,4 @@ scp ./uploads/* root@$DROPLET_HOST:~
 scp ./slack_token_tmp.txt root@$DROPLET_HOST:/opt/lita_slack_token.txt
 rm ./slack_token_tmp.txt
 
-ssh root@$DROPLET_HOST "./bootstrap_server.sh"
+ssh root@$DROPLET_HOST "./install_dependencies.sh"

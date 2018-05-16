@@ -18,4 +18,10 @@ log:
 	docker logs -f ${IMAGE_NAME}
 
 run: pull
-	docker run -dit --net="host" -e "REDIS_URL=redis://localhost:6379" -e "RACK_ENV=production" -e "SLACK_TOKEN=${SLACK_TOKEN}" --name ${IMAGE_NAME} ${DOCKER_HUB_IMAGE} /bin/bash -c "cd /app && bundle exec lita" --restart always --rm
+	docker run -dit --net="host" \
+	  -e "REDIS_URL=redis://localhost:6379" \
+	  -e "RACK_ENV=production" \
+	  -e "SLACK_TOKEN=${SLACK_TOKEN}" \
+	  --name ${IMAGE_NAME} ${DOCKER_HUB_IMAGE} \
+	    /bin/bash -c "cd /app && bundle exec lita" \
+	  --restart always --rm
